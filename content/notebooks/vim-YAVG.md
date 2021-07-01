@@ -5,7 +5,6 @@ draft: false
 categories: ["tools"]
 Authorbox: false
 toc: true # Table of contents
-thumbnail: /notebooks/img/vim-thumbnail.PNG
 ---
 
 **Spending some time learning Vim to save time**

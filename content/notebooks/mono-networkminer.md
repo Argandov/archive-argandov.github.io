@@ -5,7 +5,6 @@ draft: false
 tags: ["cybersecurity","Linux"]
 toc: true # Table of contents
 lead: "Get Network Miner up and running in Linux in around 5 minutes"
-thumbnail: /notebooks/img/pcap-Linux-thumbnail.PNG
 ---
 
 In order for us to have a friendly interface for analizing network capture files (pcap), it's very useful to have monitoring tools like Network Miner, which lets us extract the data *in transit* as it happened at the time of the capture. It also allows us to "sniff" communications in real time but for this time we will only be using it for reading an already existing .pcap file.

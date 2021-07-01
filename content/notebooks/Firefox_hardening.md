@@ -5,7 +5,6 @@ draft: false
 categories: ["hardening"]
 Authorbox: false
 toc: true # Table of contents
-thumbnail: /notebooks/img/firefox-hardening-thumbnail.PNG
 ---
 ---
 

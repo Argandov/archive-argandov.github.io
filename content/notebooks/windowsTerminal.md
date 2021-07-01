@@ -3,7 +3,6 @@ title: "Windows Terminal: Keeping a neat and clean workspace"
 date: 2020-11-01T21:06:05-06:00
 draft: false
 authorbox: false
-thumbnail: /notebooks/img/wt-thumbnail.PNG
 
 ---
 

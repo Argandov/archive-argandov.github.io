@@ -6,7 +6,6 @@ authorbox: false
 tags: ["ssh"]
 toc: true # Table of contents
 lead: "A brief SSH tunneling & proxy methods guide"
-thumbnail: /notebooks/img/ssh-thumbnail.PNG
 ---
 Dynamic, Remote & Local port-forwarding. Tunneling and Hardening resources.
 <!--more-->

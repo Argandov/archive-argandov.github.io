@@ -5,7 +5,6 @@ draft: false
 tags: ["cybersecurity"]
 toc: true # Table of contents
 lead: "Quick guide to get started with testing virtual labs"
-thumbnail: /notebooks/img/vm-setup-thumbnail.PNG
 
 ---
 
