@@ -17,11 +17,7 @@
       <pubDate>Wed, 30 Jun 2021 21:06:05 -0600</pubDate>
       
       <guid>https://argandov.github.io/notebooks/how_to_git/</guid>
-      <description>New local repository git config --global user.name &amp;quot;my name&amp;quot; git config --global user.email &amp;quot;my email&amp;quot; (For reference when working with teams; not necessarily related to the account)
-1.- git init
-*Adds a new .git directory on the current folder (pwd). To stop git from following this repo, delete .git directory
-2.- touch .gitignore
-* Add here any file to be &amp;ldquo;ignored&amp;rdquo; in upstream (Private info or irrelevant to the project)</description>
+      <description>&lt;p&gt;Step by step for new repositories, working locally and remotely&lt;/p&gt;</description>
     </item>
     
   </channel>
