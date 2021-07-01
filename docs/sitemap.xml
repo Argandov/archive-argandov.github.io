@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://argandov.github.io/writeups-reports/files/cicada/</loc>
+    <lastmod>2021-05-13T10:20:20-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/ssh-tunneling/</loc>
+    <lastmod>2021-05-06T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/writeups-reports/alienphish/</loc>
+    <lastmod>2021-04-26T18:20:20-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/blog/seneca/</loc>
+    <lastmod>2021-04-23T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/writeups-reports/brainpan/</loc>
+    <lastmod>2021-04-21T20:37:01-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/d_over_resources/</loc>
+    <lastmod>2021-04-18T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/isolation/</loc>
+    <lastmod>2021-04-02T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/mono-networkminer/</loc>
+    <lastmod>2021-04-02T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/web-pentesting/</loc>
+    <lastmod>2021-04-02T19:59:48-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/blog/yoga_nidra/</loc>
+    <lastmod>2021-02-15T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/windowsterminal/</loc>
+    <lastmod>2020-11-01T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/firefox_hardening/</loc>
+    <lastmod>2020-10-30T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/vim-yavg/</loc>
+    <lastmod>2020-05-20T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/writeups-reports/retro/</loc>
+    <lastmod>2020-05-16T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/writeups-reports/ics_thm_1/</loc>
+    <lastmod>2020-05-09T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/</loc>
+    <lastmod>2021-05-13T10:20:20-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/blog/</loc>
+    <lastmod>2021-04-23T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/buffer-overflow/</loc>
+    <lastmod>2021-04-21T20:37:01-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/training-sites/exploits/</loc>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/</loc>
+    <lastmod>2021-04-21T20:37:01-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/coding/</loc>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/crypto/</loc>
+    <lastmod>2021-05-13T10:20:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/ctf/</loc>
+    <lastmod>2021-04-26T18:20:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/cybersecurity/</loc>
+    <lastmod>2021-04-18T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/training-sites/</loc>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/forensics/</loc>
+    <lastmod>2021-04-26T18:20:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/hackthebox/</loc>
+    <lastmod>2021-04-26T18:20:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/hardening/</loc>
+    <lastmod>2020-10-30T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/health-hacking/</loc>
+    <lastmod>2021-02-15T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/linux/</loc>
+    <lastmod>2021-04-02T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/moods/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/notebooks/</loc>
+    <lastmod>2021-05-06T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/philosophy/</loc>
+    <lastmod>2021-04-23T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/</loc>
+    <lastmod>2021-04-18T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/resources/training-sites/re-bof/</loc>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/ssh/</loc>
+    <lastmod>2021-05-06T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/</loc>
+    <lastmod>2021-04-18T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/tools/</loc>
+    <lastmod>2020-05-20T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/tryhackme/</loc>
+    <lastmod>2021-05-13T10:20:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/categories/writeups/</loc>
+    <lastmod>2021-04-26T18:20:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/writeups-reports/</loc>
+    <lastmod>2021-05-13T10:20:20-05:00</lastmod>
+  </url>
+  
+</urlset>

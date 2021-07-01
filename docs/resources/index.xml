@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resources on </title>
+    <link>https://argandov.github.io/resources/</link>
+    <description>Recent content in Resources on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Apr 2021 21:06:05 -0600</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/resources/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Digital Overdose Conference Resources &amp; Readings</title>
+      <link>https://argandov.github.io/resources/d_over_resources/</link>
+      <pubDate>Sun, 18 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/resources/d_over_resources/</guid>
+      <description>Video Youtube Files for the exercises:  slides pcap file  Resources - pcap analysis  Sguil info About Packet sniffers Tcpdump introduction Tcpdump man pages Tcpdump flags explained and extra info Tcpdump guide by Daniel Miessler ET PRO Rule categories information Virtual Machine setup - Kali Linux How to install mono + Network Miner  Interesting reads  Analyzing network traffic basic linux tools (pdf by SANS institute) Extracting files from packet captures (pdf by SANS institute) Tutorial: Extracting files from pcap in Wireshark (malware-traffic-analysis.</description>
+    </item>
+    
+  </channel>
+</rss>

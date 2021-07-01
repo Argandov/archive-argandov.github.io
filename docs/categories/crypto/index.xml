@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crypto on </title>
+    <link>https://argandov.github.io/categories/crypto/</link>
+    <description>Recent content in Crypto on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 May 2021 10:20:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tryhackme: Cicada 3301 Vol. 1</title>
+      <link>https://argandov.github.io/writeups-reports/files/cicada/</link>
+      <pubDate>Thu, 13 May 2021 10:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/files/cicada/</guid>
+      <description>&lt;p&gt;A basic steganography and cryptography challenge room based on the Cicada 3301 challenges&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

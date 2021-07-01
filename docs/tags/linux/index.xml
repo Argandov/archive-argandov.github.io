@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on </title>
+    <link>https://argandov.github.io/tags/linux/</link>
+    <description>Recent content in Linux on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Apr 2021 21:06:05 -0600</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Examine files in transit from pcap files in Linux</title>
+      <link>https://argandov.github.io/notebooks/mono-networkminer/</link>
+      <pubDate>Fri, 02 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/mono-networkminer/</guid>
+      <description>In order for us to have a friendly interface for analizing network capture files (pcap), it&amp;rsquo;s very useful to have monitoring tools like Network Miner, which lets us extract the data in transit as it happened at the time of the capture. It also allows us to &amp;ldquo;sniff&amp;rdquo; communications in real time but for this time we will only be using it for reading an already existing .pcap file.</description>
+    </item>
+    
+  </channel>
+</rss>

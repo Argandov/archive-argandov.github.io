@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="429" height="429" viewBox="0 0 429 429">
+  <g id="Grupo_28" data-name="Grupo 28" transform="translate(-1033 811)">
+    <g id="Grupo_27" data-name="Grupo 27" transform="translate(1159 299)">
+      <g id="Grupo_22" data-name="Grupo 22" transform="translate(-136 -804)">
+        <text id="ARGV_5_" data-name="ARGV[5]" transform="translate(127 -68)" fill="#eb2525" font-size="46" font-family="Swiss721BT-BlackCondensed, Swis721 BlkCn BT" font-weight="800" letter-spacing="0.083em"><tspan x="-91.494" y="0" fill="#000">ARGV</tspan><tspan y="0" fill="#eb2525">[</tspan><tspan y="0" fill="#000">5</tspan><tspan y="0" fill="#eb2525">]</tspan></text>
+      </g>
+    </g>
+    <text id="_" data-name="=" transform="translate(1263 -573)" font-size="46" font-family="Swiss721BT-BlackCondensed, Swis721 BlkCn BT" font-weight="800" letter-spacing="0.083em"><tspan x="-19.159" y="0">=</tspan></text>
+    <rect id="Rectángulo_7" data-name="Rectángulo 7" width="377" height="49" transform="translate(1059 -452)" fill="#2a2a2a"/>
+    <text id="SSH_Tunneling_Port-Forwarding" data-name="SSH Tunneling + Port-Forwarding" transform="translate(1059 -518)" font-size="46" font-family="Swiss721BT-BlackCondensed, Swis721 BlkCn BT" font-weight="800" letter-spacing="-0.015em"><tspan x="0" y="0">SSH Tunneling + </tspan><tspan x="0" y="55">Port-Forwarding</tspan></text>
+    <rect id="Rectángulo_8" data-name="Rectángulo 8" width="429" height="429" transform="translate(1033 -811)" fill="none"/>
+  </g>
+</svg>

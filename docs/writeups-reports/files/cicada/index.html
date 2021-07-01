@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Argv</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/argv_title.PNG">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/writeups-reports/">
+				
+				<span class="menu__text">Writeups &amp; Reports</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Tryhackme: Cicada 3301 Vol. 1</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-13T10:20:20-05:00">May 13, 2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/crypto/" rel="category">Crypto</a>, <a class="meta__link" href="/categories/tryhackme/" rel="category">Tryhackme</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#analyzing-3301-wav">Analyzing 3301.wav</a></li>
+<li><a href="#analyzing-welcome-jpg">Analyzing welcome.jpg</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-hidden-information-inside-welcome-jpg">1.- Hidden information inside welcome.jpg:</a></li>
+<li><a href="#2-embedded-file-inside-welcome-jpg">2.- Embedded file inside welcome.jpg</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#cracking-the-hidden-hash">Cracking the hidden hash</a></li>
+<li><a href="#enough-with-decoding-let-s-encode">Enough with decoding, let&rsquo;s encode!</a></li>
+</ul></li>
+</ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>A basic steganography and cryptography challenge room based on the Cicada 3301 challenges</p>
+
+<p>Link for the room: <a href="https://tryhackme.com/room/cicada3301vol1">https://tryhackme.com/room/cicada3301vol1</a></p>
+
+<hr />
+
+<p><img src="/writeups-reports/files/cicada/cicada_0.jpg" alt="cicada_9.png" /></p>
+
+<p>There are a lot of <a href="https://www.telegraph.co.uk/technology/internet/10555088/Cicada-3301-update-the-baffling-internet-mystery-is-back.html">stories</a> surrounding <a href="https://en.wikipedia.org/wiki/Cicada_3301">cicada 3301</a>, and this room was inspired by this mysterious crypto challenges.</p>
+
+<p>Let&rsquo;s start:</p>
+
+<hr />
+
+<p>Initially we are provided with 2 files:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_1.png" alt="cicada_1.png" /></p>
+
+<h2 id="analyzing-3301-wav">Analyzing 3301.wav</h2>
+
+<p>We used <a href="https://www.sonicvisualiser.org/">https://www.sonicvisualiser.org/</a> for analizing the 3301.wav file.</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_2.png" alt="cicada_2.png" /></p>
+
+<p>We can process the audio waves from it, and with a couple steps we retrieve:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_3.png" alt="cicada_3.png" /></p>
+
+<p>Only a minor tweak to change the color so it&rsquo;s legible for QR scanners:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_4.png" alt="cicada_4.png" /></p>
+
+<p>The QR code led us to a site with some information in it.</p>
+
+<p>We decode the given passphrase/key from base 64 with the following commands:</p>
+
+<pre><code>[user@parrot/thm-cicada 17:58]$echo SG01Ul80X1A0NTVtaHA0NTMh | base64 -d
+
+[user@parrot/thm-cicada 18:00]$echo Q2ljYWRh | base64 -d
+</code></pre>
+
+<p>After some testing, we used the Vigenere Cipher (<a href="https://www.dcode.fr/vigenere-cipher">https://www.dcode.fr/vigenere-cipher</a>)</p>
+
+<p>There were no results trying to decrypt, so I tried Encrypting it again with Vigenere, and the l33t password appeared!</p>
+
+<h2 id="analyzing-welcome-jpg">Analyzing welcome.jpg</h2>
+
+<h5 id="1-hidden-information-inside-welcome-jpg">1.- Hidden information inside welcome.jpg:</h5>
+
+<p>For this file, we need to uncover some hidden data (Steganography). There is no information in the metadata, so we &ldquo;unhide&rdquo; a useful string using the passphrase given and the online tool <a href="https://futureboy.us/stegano/">https://futureboy.us/stegano/</a>, which is itself a link again.</p>
+
+<h5 id="2-embedded-file-inside-welcome-jpg">2.- Embedded file inside welcome.jpg</h5>
+
+<p>There is another file embedded into our welcome.jpg file, and we can uncover it with:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_5.png" alt="cicada_5.png" /></p>
+
+<p>Extracting this invitation.txt file:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_6.png" alt="cicada_6.png" /></p>
+
+<h2 id="cracking-the-hidden-hash">Cracking the hidden hash</h2>
+
+<p>Following the link given in the previous step, and downloading the next image in it, and trying to retrieve hidden information with &ldquo;steghide&rdquo; inside our new 85*.jpg file, the passphrase is now invalid 🤔</p>
+
+<p>In Cicada 3301 challenges, the tool used was named outguess, so we can use it to test a new approach to this file, with the -r switch, which will retrieve hidden messages inside files:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_7.png" alt="cicada_7.png" /></p>
+
+<p>We now have something to work with. (hash deliberately cut in image to avoid spoiling)</p>
+
+<p>We also have now some instructions to decode a secret message in &ldquo;a book&rdquo;. Let&rsquo;s see what we end up cracking; we still don&rsquo;t know what that &ldquo;book&rdquo; is.</p>
+
+<p>Ran John the Ripper to try to crack the hash&hellip;</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_8.png" alt="cicada_8.png" /></p>
+
+<p>While we wait, let&rsquo;s try an online tool. No results at crackstation.net, so we move on to <a href="https://md5hashing.net/">https://md5hashing.net/</a></p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_9.png" alt="cicada_9.png" /></p>
+
+<p>(Image deliberately cut to avoid spoiling)</p>
+
+<h2 id="enough-with-decoding-let-s-encode">Enough with decoding, let&rsquo;s encode!</h2>
+
+<p>Now, following the link, we arrive at this book:</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_10.png" alt="cicada_10.png" /></p>
+
+<p>…But we already know what to do with this, as our &ldquo;out.txt&rdquo; has some hints to proceed with this 🤔</p>
+
+<p>The instructions are as follows:</p>
+
+<p>&ldquo;Use positive integers to go forward in the text use negative integers to go backwards in the text.&rdquo;</p>
+
+<p>And the &ldquo;codes&rdquo; to proceed read as follows:</p>
+
+<pre><code>I:13:1
+I:14:7
+I:3:29
+I:19:8
+
+… And so on
+</code></pre>
+
+<p>This is a perfect time to practice some python, so we can make a script and &ldquo;decode&rdquo; our secret message (Code shared below):</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_11.png" alt="cicada_11.png" /></p>
+
+<p>Bingo! That&rsquo;s our link</p>
+
+<p><img src="/writeups-reports/files/cicada/cicada_12.png" alt="cicada_12.png" /></p>
+
+<p>Nope, I don&rsquo;t think that&rsquo;s it. Back to vim.</p>
+
+<p>In case you want to try it this way, here&rsquo;s some explanation of this ~<del>poorly written</del>~ program:</p>
+
+<blockquote>
+<p>I saved both the book and the &ldquo;keys&rdquo; of our &ldquo;out.txt&rdquo; file with some simple formatting (Some simple character substitutions) so it&rsquo;s easier to process with python:</p>
+
+<p>The dots at the beginning of each paragraph (&ldquo;13. The book…&rdquo;) of the book were changed with &ldquo;~&rdquo; so I don&rsquo;t have trouble splitting with python.</p>
+
+<p>Also, the keys were saved in a new file, with the format &ldquo;number:number&rdquo;, also to avoid splitting issues.</p>
+</blockquote>
+
+<pre><code class="language-with">    secret = &quot;&quot;
+    for code in codes:
+        if &quot;/&quot; in code:
+            secret += &quot;/&quot;
+        else:
+            dig = code.split(&quot;:&quot;)
+            code_index = dig[0]
+            code_key = dig[1]
+
+            with open('book.txt','r') as book:
+                for line in book:
+
+                    divided = line.split(&quot;~&quot;)
+                    index = divided[0]
+                    text = divided[1]
+                    text = text.replace(&quot; &quot;,&quot;&quot;)
+                    if index == code_index:
+                        if int(code_key) &lt; 0:
+                            code_key = int(code_key) + 2
+                            secret += line[int(code_key)]
+                            break
+                        try:
+                            secret += text[int(code_key)-1]
+                            break            
+                        except IndexError:
+                            break
+
+print(secret)
+</code></pre>
+
+<p><img src="/writeups-reports/files/cicada/cicada_13.png" alt="cicada_13.png" /></p>
+
+<p>The strings we needed to encode, with the instruction &ldquo;Use positive integers to go forward in the text use negative integers to go backwards in the text.&rdquo;, the negative integers meant going from the start of the string, backwards, including the initial paragraph numbers. (So -2 in the paragraph &ldquo;53.This shall regenerate&rdquo; is 5, not &ldquo;t&rdquo;).</p>
+
+<p>This script was completely unnecessary because there were only 19 lines to &ldquo;encode&rdquo; and it could&rsquo;ve been done perfectly fine with the naked eye, but it was a fun character-handling experiment.</p>
+
+<p>This leads to the last piece of this Cicada 3301 puzzle, and with our final link open, and nothing else to retrieve from it, except for some plaintext.</p>
+
+<p>Poor John the ripper is still trying to crack the hash.. I forgot it :)</p>
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/writeups-reports/alienphish/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Hack The Box: Alienphish</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/resources/d_over_resources/">Digital Overdose Conference Resources &amp; Readings</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/exploits/">Buffer Overflows &amp; Exploits.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/re-bof/">Reverse Engineering</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/buffer-overflow/">Buffer Overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/crypto/">Crypto</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ctf/">Ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/forensics/">Forensics</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hackthebox/">Hackthebox</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hardening/">Hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tools/">Tools</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tryhackme/">Tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/writeups/">Writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cybersecurity/" title="Cybersecurity">Cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/philosophy/" title="Philosophy">Philosophy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Argandov.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

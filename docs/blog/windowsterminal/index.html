@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HYDRA</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/hydra/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/hydra/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/hydra/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/hydra/img/hydra.svg">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/health/">
+				
+				<span class="menu__text">Body &amp; Mind</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Windows Terminal: Keeping a neat and clean workspace</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-11-01T21:06:05-06:00">November 01, 2020</time></div></div>
+		</header><div class="content post__content clearfix">
+			<hr>
+<p>When it comes to open sessions, monitoring your network or communicate between servers/hosts, organization is key for an agile mind.</p>
+<p>While there are lots of options to establish a connection between hosts (Like Termius, PuTTY, or even the original terminal), I found the new Windows Terminal app to be just perfect for handling multiple sessions at once.</p>
+<p><img src="/hydra/blog/assets/img/terminal.png" alt="terminal snapshot"></p>
+<p>In this article, we’ll explore some of the features and settings for the WT, and in this particular demonstration we will be using a Linux Virtual Machine as a guest to connect to, but we can set up automatic SSH sessions to routers, switches, FTP, etc.</p>
+<p>So let’s get started.</p>
+<p>For this example, I tested with a local virtual machine. Firstly, I chose a “Headless Start”, so it starts and runs in the background. This helps me keep things a little bit lighter and more organized. Let’s see:</p>
+<p><img src="/hydra/blog/assets/img/virtualbox.png" alt="virtualbox"></p>
+<p>Now, this is just a personal choice, and it may or may not work to you, depending on your needs. Personally, I don’t need a GUI for my server, so I can just ssh into it from any terminal.</p>
+<p>Let’s now get the Windows Terminal app.</p>
+<h1 id="1-download-windows-terminal-from-the-microsoft-store-and-run-it">1. Download Windows Terminal from the Microsoft Store and run it.</h1>
+<p>It’s free and it’s lightweight so this can be setup in the coffee break and get back to work with a more organized desktop.</p>
+<p>Just open the WT application and we’ll start from there.</p>
+<p>Note: If you need to use Elevation mode, just type Win+R and write “wt”. Then ctrl+shift+Enter to open it with admin privileges.</p>
+<h1 id="2-creating-and-customizing-sessions-through-the-settings-file">2. Creating and customizing sessions through the settings file.</h1>
+<p>Now that I have a VM running in the background, I can then configure the Terminal so I can automate the connection (And of course, some appearance customization and additional settings) in no more than 5 minutes and open it with a couple of clicks from now on.</p>
+<p>Firstly, open the settings.json file by clicking the down arrow and then “settings” (Or just hit Ctrl + ,) in the upper section:</p>
+<p><img src="/hydra/blog/assets/img/wt-config.png" alt="config file image"></p>
+<p>You can edit the settings.json file in Visual Code or any text editor.</p>
+<p>Create a new field between “{ }” and enter the configuration you like (You’ll find the path to the official Microsoft WT documentation inside the settings.json file for a lot more information). I included a simple <em>commandline instruction</em> here to execute the ssh connection when this new tab opens. Now all the WT will do when I open this new tab is execute this command and Voilà, a new SSH session to my desired server is opened.</p>
+<p>If <strong>DHCP</strong> is enabled, this setup won’t be as useful, and we would need to modify the settings.json file everytime the dhcp lease time expires.</p>
+<p>Note also the colors I chose in the “foreground” and “tabColor” fields and even a CentOS icon in my Images directory. That’s entirely optional, but I set that up for convenience, since I will be configuring some different VMs from this, and coloring will be necessary when multiple sessions are open.</p>
+<p>The order in which the new tab was added does matter. In my case, you can see I put the new one in the third place, just before the Azure Cloud Shell settings.</p>
+<p>Double-check your syntax and Ctrl+G to save the file and move on.</p>
+<h1 id="3-open-the-tab-we-just-created">3. Open the tab we just created</h1>
+<p>The results:</p>
+<p><img src="/hydra/blog/assets/img/wt-main.png" alt="Terminal image"></p>
+<p>And we’re done for this one session. Now we can add more SSH sessions and have them opened at the same time, all in a single application.</p>
+<p>This was for an automatic VM-host communication session, but this can be done for a lot of purposes. There is also a very powerful WSL 1 &amp; 2 integration (Which I am really enjoying), but that’s a topic for a future post.</p>
+<p>There are a lot of options and features in this amazing new app by MS and this was just one, but I hope I succesfully conveyed the idea of what’s possible with it.</p>
+<p>Cool, huh?</p>
+<p>Original post @ Medium.com: <a href="https://medium.com/@armandogv25/keeping-multiple-ssh-sessions-neat-and-clean-30d493307238">https://medium.com/@armandogv25/keeping-multiple-ssh-sessions-neat-and-clean-30d493307238</a></p>
+
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/hydra/blog/firefox_hardening/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">A Firefox hardening quick guide</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/hydra/blog/mono-networkminer/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Examine files in transit from pcap files in Linux</p>
+		</a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "what is this" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/isolation/">Compartmentalization Virtual Machine setup</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/mono-networkminer/">Examine files in transit from pcap files in Linux</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/windowsterminal/">Windows Terminal: Keeping a neat and clean workspace</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/firefox_hardening/">A Firefox hardening quick guide</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/binary-exploitation/">Binary exploitation</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/buffer-overflow/">buffer overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/ctf/">ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/hardening/">hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/malware-analysis/">malware analysis</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/tryhackme/">tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/writeups/">writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/cybersecurity/" title="cybersecurity">cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/ethical-hacking/" title="Ethical Hacking">Ethical Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/philosophy/" title="Philosophy">Philosophy</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 HYDRA.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/hydra/js/menu.js"></script>
+</body>
+</html>

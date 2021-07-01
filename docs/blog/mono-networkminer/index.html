@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HYDRA</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/hydra/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/hydra/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/hydra/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/hydra/img/hydra.svg">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/health/">
+				
+				<span class="menu__text">Body &amp; Mind</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/hydra/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Examine files in transit from pcap files in Linux</h1>
+			<p class="post__lead">Get Network Miner up and running in Linux in around 5 minutes</p>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-02T21:06:05-06:00">April 02, 2021</time></div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>In order for us to have a friendly interface for analizing network capture files (pcap), it&rsquo;s very useful to have monitoring tools like Network Miner, which lets us extract the data <em>in transit</em> as it happened at the time of the capture. It also allows us to &ldquo;sniff&rdquo; communications in real time but for this time we will only be using it for reading an already existing .pcap file.</p>
+<p>What is Network Miner anyways? From the official site:</p>
+<blockquote>
+<p><em>NetworkMiner is an open source Network Forensic Analysis Tool (NFAT) for Windows (but also works in Linux / Mac OS X / FreeBSD). NetworkMiner can be used as a passive network sniffer/packet capturing tool in order to detect operating systems, sessions, hostnames, open ports etc. without putting any traffic on the network. NetworkMiner can also parse PCAP files for off-line analysis and to regenerate/reassemble transmitted files and certificates from PCAP files.</em></p>
+</blockquote>
+<p>For this demo I was using a Debian distribution, and the process may be slightly different if you decide to use other distro, so the instructions for downloading and installing the required tools will be provided directly from the official pages.</p>
+<p>First, since NetworkMiner is a Windows tool, we will need a useful .Net framework called &ldquo;Mono&rdquo;, capable of running our program in our Linux OS. Maybe it&rsquo;s also possible to do this with &ldquo;wine&rdquo; if you already have it installed, but I am not that familiar with it. Let me know if this was the case and it worked for you.</p>
+<h5 id="step-1-for-installing-mono">Step 1: For installing mono</h5>
+<p>Download and install instructions for mono <a href="https://www.mono-project.com/download/stable/#download-lin">here</a></p>
+<p>Follow the instructions and from here on the rest of the setup is pretty straightforward.</p>
+<h5 id="step-2-installing-network-miner">Step 2: Installing Network Miner</h5>
+<p>Download page for Network Miner <a href="https://www.netresec.com/?page=networkminer">here</a></p>
+<p>Once the initial setup files are downloaded, we will need to unzip the contents, and run our new mono tool to execute the setup, and depending on your file paths, the command would look something like this:</p>
+<pre><code>$ unzip networkminer.zip 
+$ mono /path/networkminersetup.exe
+</code></pre><p>And voilà, you should be having a windows setup screen for Network Miner installation. Follow up on the instructions and one we&rsquo;re done with that, let&rsquo;s just run NetworkMiner, again with mono:</p>
+<pre><code>$ mono /path/networkminer.exe /path/packetcapture.pcap
+</code></pre><p>This last argument which is the path to the pcap file we want to open is optional, and we can also just run the program without opening any file just yet, and then manually open it using the GUI, it makes no difference.</p>
+<p>For more information about the installation, direct from the official netresec site:</p>
+<p><a href="https://www.netresec.com/?page=Blog&amp;month=2014-02&amp;post=HowTo-install-NetworkMiner-in-Ubuntu-Fedora-and-Arch-Linux">https://www.netresec.com/?page=Blog&amp;month=2014-02&amp;post=HowTo-install-NetworkMiner-in-Ubuntu-Fedora-and-Arch-Linux</a></p>
+<p>Now we can start extracting valuable information from packet captures. And, since this tool was made by <em><strong>security professionals</strong></em>, there are a couple options we can take advantage of, if we are doing forensics analysis work. There may be many more, but as an example, we can extract suspicious <em><strong>file hashes</strong></em>, direct IP addresses/domains, digital certificates and even some credentials if it was the case at the time of the data capture.</p>
+<p>Here we have excelent <em><strong>use samples for Network Miner from the official site:</strong></em></p>
+<p><a href="https://www.netresec.com/?page=Resources">https://www.netresec.com/?page=Resources</a></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/hydra/tags/cybersecurity/" rel="tag">cybersecurity</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/hydra/tags/linux/" rel="tag">Linux</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Argandov avatar" src="/hydra/img/argv.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Argandov</span>
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/hydra/blog/windowsterminal/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Windows Terminal: Keeping a neat and clean workspace</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/hydra/blog/isolation/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Compartmentalization Virtual Machine setup</p>
+		</a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "what is this" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/isolation/">Compartmentalization Virtual Machine setup</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/mono-networkminer/">Examine files in transit from pcap files in Linux</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/windowsterminal/">Windows Terminal: Keeping a neat and clean workspace</a></li>
+			<li class="widget__item"><a class="widget__link" href="/hydra/blog/firefox_hardening/">A Firefox hardening quick guide</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/binary-exploitation/">Binary exploitation</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/buffer-overflow/">buffer overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/ctf/">ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/hardening/">hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/malware-analysis/">malware analysis</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/tryhackme/">tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/hydra/categories/writeups/">writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/cybersecurity/" title="cybersecurity">cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/ethical-hacking/" title="Ethical Hacking">Ethical Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/hydra/tags/philosophy/" title="Philosophy">Philosophy</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 HYDRA.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/hydra/js/menu.js"></script>
+</body>
+</html>

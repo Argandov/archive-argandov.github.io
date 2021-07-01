@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups on </title>
+    <link>https://argandov.github.io/categories/writeups/</link>
+    <description>Recent content in Writeups on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Apr 2021 18:20:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/categories/writeups/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hack The Box: Alienphish</title>
+      <link>https://argandov.github.io/writeups-reports/alienphish/</link>
+      <pubDate>Mon, 26 Apr 2021 18:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/alienphish/</guid>
+      <description>&lt;p&gt;This CTF was part of the event hosted at ctf.hackthebox.eu &amp;ldquo;Cyberapocalypse&amp;rdquo;.
+Mission: Find a payload and a flag inside &amp;ldquo;Alien Weaknesses.pptx&amp;rdquo;,&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Brainpan</title>
+      <link>https://argandov.github.io/writeups-reports/brainpan/</link>
+      <pubDate>Wed, 21 Apr 2021 20:37:01 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/brainpan/</guid>
+      <description>&lt;p&gt;Brainpan is part of the &amp;ldquo;Offensive Pentesting Path&amp;rdquo; in TryHackMe, and it is a straight-forward &lt;strong&gt;buffer overflow&lt;/strong&gt; activity with further extra steps to achieve full &lt;strong&gt;privilege escalation&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

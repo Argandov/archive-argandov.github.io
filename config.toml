@@ -1,0 +1,48 @@
+baseURL = "https://argandov.github.io"
+languageCode = "en-us"
+publishDir = "docs"
+
+title = ""
+theme = "mainroad"
+
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  mood = "moods" # Esta es una nueva taxonomía
+
+[Author] # Used in authorbox
+  name = "Argandov"
+  homepage = "https://github.com/vimux"
+  avatar = "img/argv_authorbox.svg"
+
+[Params]
+  copyright = "Argandov"
+  description = "" # Description of your site
+  opengraph = false
+  twitter_cards = false
+  authorbox = true
+  pager = true
+  post_meta = ["date", "categories"] # Order of post meta information
+
+[Params.logo]
+  subtitle = ""
+  image = "img/argv_title.PNG" # Logo image. Path relative to "static"
+
+
+
+[Params.sidebar]
+  home = "right"   # Configure layout for home page
+  list = "right"   # Configure layout for list pages
+  single = "right" # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["ddg-search", "news-sites","recent", "categories", "taglist", "languages"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+
+[Params.style.vars]
+  highlightColor = "#e22d30"

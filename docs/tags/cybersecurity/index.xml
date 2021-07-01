@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cybersecurity on </title>
+    <link>https://argandov.github.io/tags/cybersecurity/</link>
+    <description>Recent content in Cybersecurity on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Apr 2021 21:06:05 -0600</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Digital Overdose Conference Resources &amp; Readings</title>
+      <link>https://argandov.github.io/resources/d_over_resources/</link>
+      <pubDate>Sun, 18 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/resources/d_over_resources/</guid>
+      <description>Video Youtube Files for the exercises:  slides pcap file  Resources - pcap analysis  Sguil info About Packet sniffers Tcpdump introduction Tcpdump man pages Tcpdump flags explained and extra info Tcpdump guide by Daniel Miessler ET PRO Rule categories information Virtual Machine setup - Kali Linux How to install mono + Network Miner  Interesting reads  Analyzing network traffic basic linux tools (pdf by SANS institute) Extracting files from packet captures (pdf by SANS institute) Tutorial: Extracting files from pcap in Wireshark (malware-traffic-analysis.</description>
+    </item>
+    
+    <item>
+      <title>Compartmentalization Virtual Machine setup</title>
+      <link>https://argandov.github.io/notebooks/isolation/</link>
+      <pubDate>Fri, 02 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/isolation/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Important: This following guide assumes your activities will be low-risk, so the isolation is kept at some degree lightly. If you have some advanced and specific needs, this guide may come short and you may need to do some more research.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Examine files in transit from pcap files in Linux</title>
+      <link>https://argandov.github.io/notebooks/mono-networkminer/</link>
+      <pubDate>Fri, 02 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/mono-networkminer/</guid>
+      <description>In order for us to have a friendly interface for analizing network capture files (pcap), it&amp;rsquo;s very useful to have monitoring tools like Network Miner, which lets us extract the data in transit as it happened at the time of the capture. It also allows us to &amp;ldquo;sniff&amp;rdquo; communications in real time but for this time we will only be using it for reading an already existing .pcap file.</description>
+    </item>
+    
+  </channel>
+</rss>

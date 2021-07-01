@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About this website on </title>
+    <link>https://argandov.github.io/</link>
+    <description>Recent content in About this website on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 May 2021 10:20:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tryhackme: Cicada 3301 Vol. 1</title>
+      <link>https://argandov.github.io/writeups-reports/files/cicada/</link>
+      <pubDate>Thu, 13 May 2021 10:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/files/cicada/</guid>
+      <description>&lt;p&gt;A basic steganography and cryptography challenge room based on the Cicada 3301 challenges&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SSH Tunneling and Port-Forwarding guide</title>
+      <link>https://argandov.github.io/notebooks/ssh-tunneling/</link>
+      <pubDate>Thu, 06 May 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/ssh-tunneling/</guid>
+      <description>&lt;p&gt;Dynamic, Remote &amp;amp; Local port-forwarding. Tunneling and Hardening resources.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hack The Box: Alienphish</title>
+      <link>https://argandov.github.io/writeups-reports/alienphish/</link>
+      <pubDate>Mon, 26 Apr 2021 18:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/alienphish/</guid>
+      <description>&lt;p&gt;This CTF was part of the event hosted at ctf.hackthebox.eu &amp;ldquo;Cyberapocalypse&amp;rdquo;.
+Mission: Find a payload and a flag inside &amp;ldquo;Alien Weaknesses.pptx&amp;rdquo;,&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A stoics&#39;s guide of conduct</title>
+      <link>https://argandov.github.io/blog/seneca/</link>
+      <pubDate>Fri, 23 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/blog/seneca/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&amp;ldquo;Philosophers do not carry into effect all that they teach.&amp;rdquo; No; but they effect much good by their teaching, by the noble thoughts which they conceive in their minds: would, indeed, that they could act up to their talk: what could be happier than they would be? but in the meanwhile you have no right to despise good sayings and hearts full of good thoughts.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Brainpan</title>
+      <link>https://argandov.github.io/writeups-reports/brainpan/</link>
+      <pubDate>Wed, 21 Apr 2021 20:37:01 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/brainpan/</guid>
+      <description>&lt;p&gt;Brainpan is part of the &amp;ldquo;Offensive Pentesting Path&amp;rdquo; in TryHackMe, and it is a straight-forward &lt;strong&gt;buffer overflow&lt;/strong&gt; activity with further extra steps to achieve full &lt;strong&gt;privilege escalation&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Digital Overdose Conference Resources &amp; Readings</title>
+      <link>https://argandov.github.io/resources/d_over_resources/</link>
+      <pubDate>Sun, 18 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/resources/d_over_resources/</guid>
+      <description>Video Youtube Files for the exercises:  slides pcap file  Resources - pcap analysis  Sguil info About Packet sniffers Tcpdump introduction Tcpdump man pages Tcpdump flags explained and extra info Tcpdump guide by Daniel Miessler ET PRO Rule categories information Virtual Machine setup - Kali Linux How to install mono + Network Miner  Interesting reads  Analyzing network traffic basic linux tools (pdf by SANS institute) Extracting files from packet captures (pdf by SANS institute) Tutorial: Extracting files from pcap in Wireshark (malware-traffic-analysis.</description>
+    </item>
+    
+    <item>
+      <title>Compartmentalization Virtual Machine setup</title>
+      <link>https://argandov.github.io/notebooks/isolation/</link>
+      <pubDate>Fri, 02 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/isolation/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Important: This following guide assumes your activities will be low-risk, so the isolation is kept at some degree lightly. If you have some advanced and specific needs, this guide may come short and you may need to do some more research.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Examine files in transit from pcap files in Linux</title>
+      <link>https://argandov.github.io/notebooks/mono-networkminer/</link>
+      <pubDate>Fri, 02 Apr 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/mono-networkminer/</guid>
+      <description>In order for us to have a friendly interface for analizing network capture files (pcap), it&amp;rsquo;s very useful to have monitoring tools like Network Miner, which lets us extract the data in transit as it happened at the time of the capture. It also allows us to &amp;ldquo;sniff&amp;rdquo; communications in real time but for this time we will only be using it for reading an already existing .pcap file.</description>
+    </item>
+    
+    <item>
+      <title>10 minutes of YOGA NIDRA a day keep your prefrontal cortex clear and alert</title>
+      <link>https://argandov.github.io/blog/yoga_nidra/</link>
+      <pubDate>Mon, 15 Feb 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/blog/yoga_nidra/</guid>
+      <description>Sometime ago, I embarked on a journey to try to calm down my very, very busy mind. The kind of mind that thinks all day long, sometimes making it almost impossible to settle things and focus on one single thing until its completion. If you are an overthinker like me, you can have bouts of intense focus and clarity coupled with infinite creativity, and the ability to grind for 12 hours straight, all with its downside: Some periods of rumination, intense anxiety and a general overwhelming feeling, and cronic procrastination that can last for hours, days, weeks&amp;hellip; So it&amp;rsquo;s a rollercoaster.</description>
+    </item>
+    
+    <item>
+      <title>Windows Terminal: Keeping a neat and clean workspace</title>
+      <link>https://argandov.github.io/notebooks/windowsterminal/</link>
+      <pubDate>Sun, 01 Nov 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/windowsterminal/</guid>
+      <description>When it comes to open sessions, monitoring your network or communicate between servers/hosts, organization is key for an agile mind.
+While there are lots of options to establish a connection between hosts (Like Termius, PuTTY, or even the original terminal), I found the new Windows Terminal app to be just perfect for handling multiple sessions at once.
+In this article, we’ll explore some of the features and settings for the WT, and in this particular demonstration we will be using a Linux Virtual Machine as a guest to connect to, but we can set up automatic SSH sessions to routers, switches, FTP, etc.</description>
+    </item>
+    
+    <item>
+      <title>A Firefox hardening quick guide</title>
+      <link>https://argandov.github.io/notebooks/firefox_hardening/</link>
+      <pubDate>Fri, 30 Oct 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/firefox_hardening/</guid>
+      <description>&lt;hr /&gt;
+
+&lt;p&gt;The results of this guidelines render only a casual-use Firefox configuration. If you have special privacy/anonimity needs, or are concerned about sofisticated attack vectors, then please do not use Firefox (Or use it with other privacy-enhancing services/softwares). Do your own modifications and research as needed.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Yet Another Vim Guide</title>
+      <link>https://argandov.github.io/notebooks/vim-yavg/</link>
+      <pubDate>Wed, 20 May 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/vim-yavg/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Spending some time learning Vim to save time&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Retro</title>
+      <link>https://argandov.github.io/writeups-reports/retro/</link>
+      <pubDate>Sat, 16 May 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/retro/</guid>
+      <description>&lt;p&gt;Boot to root: Retro wordpress theme &amp;amp; exploitation of CVE-2019-1388&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Attacking ICS #1</title>
+      <link>https://argandov.github.io/writeups-reports/ics_thm_1/</link>
+      <pubDate>Sat, 09 May 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/ics_thm_1/</guid>
+      <description>&lt;p&gt;This room covers an introduction to ICS / SCADA controls, and some manipulation that can be done remotely. Starting with a virtuaplant appliance, and using python scripts to send information via Modbus TCP to retrieve register states.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Buffer Overflows &amp; Exploits.</title>
+      <link>https://argandov.github.io/resources/training-sites/exploits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://argandov.github.io/resources/training-sites/exploits/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reverse Engineering</title>
+      <link>https://argandov.github.io/resources/training-sites/re-bof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://argandov.github.io/resources/training-sites/re-bof/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

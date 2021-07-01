@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tryhackme on </title>
+    <link>https://argandov.github.io/categories/tryhackme/</link>
+    <description>Recent content in Tryhackme on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 May 2021 10:20:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/categories/tryhackme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tryhackme: Cicada 3301 Vol. 1</title>
+      <link>https://argandov.github.io/writeups-reports/files/cicada/</link>
+      <pubDate>Thu, 13 May 2021 10:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/files/cicada/</guid>
+      <description>&lt;p&gt;A basic steganography and cryptography challenge room based on the Cicada 3301 challenges&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Brainpan</title>
+      <link>https://argandov.github.io/writeups-reports/brainpan/</link>
+      <pubDate>Wed, 21 Apr 2021 20:37:01 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/brainpan/</guid>
+      <description>&lt;p&gt;Brainpan is part of the &amp;ldquo;Offensive Pentesting Path&amp;rdquo; in TryHackMe, and it is a straight-forward &lt;strong&gt;buffer overflow&lt;/strong&gt; activity with further extra steps to achieve full &lt;strong&gt;privilege escalation&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

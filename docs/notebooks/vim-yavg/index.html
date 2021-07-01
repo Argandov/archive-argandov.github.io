@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Argv</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/argv_title.PNG">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/writeups-reports/">
+				
+				<span class="menu__text">Writeups &amp; Reports</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Yet Another Vim Guide</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-05-20T21:06:05-06:00">May 20, 2020</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/tools/" rel="category">Tools</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#verbs">Verbs</a></li>
+<li><a href="#modifiers">Modifiers</a></li>
+<li><a href="#nouns">Nouns</a></li>
+<li><a href="#general-purpose-actions">General purpose actions</a></li>
+<li><a href="#moving-around-in-normal-mode">Moving around in &ldquo;normal&rdquo; mode</a></li>
+<li><a href="#searching-through-the-file">Searching through the file</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul></li>
+<li><a href="#macros">Macros</a></li>
+<li><a href="#file-navigation">File navigation</a></li>
+<li><a href="#mapping-keys">Mapping keys</a></li>
+<li><a href="#checking-the-current-vimrc-file">Checking the current Vimrc file</a></li>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p><strong>Spending some time learning Vim to save time</strong></p>
+
+<p>There are a lot more commands to be known that are not shown here, and there are tons of books already explaining the full functionalities of Vim, but what this short guide delivers is a quick start and reference to the use of vim without even moving the elbow. What we want to achieve is efficiency in writing and editing documents. I spent some time &ldquo;sharpening the saw&rdquo;, learning more about this fantastic CLI tool, and it was strange at the beginning, but turns out, it&rsquo;s a crazy fast and intuitive tool. The learning curve only feels steep until we understand the &ldquo;Vim language&rdquo; and how it works.</p>
+
+<p>Note: Vim requires our commands to be very precise, and some of them are relative to the position of the cursor, so it&rsquo;s convenient to modify the cursor to &ldquo;block&rdquo; instead of &ldquo;line&rdquo; to avoid confusions.</p>
+
+<hr />
+
+<dl>
+<dt><strong>Use cases and differences between :w, :q, :q! :wq, :wq! and :x</strong></dt>
+</dl>
+
+<p>:w is for write, :q is for quit. :wq combines them. &ldquo;!&rdquo; forces the command. x will write + quit, but it will only write if there were any changes in the document.</p>
+
+<p>This :x makes sense: If we open a document only for reading, and wq, it will change the date of last editing, whereas x will not change anything.</p>
+
+<p>The commands at <em>normal mode</em> can be &ldquo;built&rdquo; by chaining:</p>
+
+<p><strong>verb + modifier + noun</strong></p>
+
+<blockquote>
+<p>*Example: <code>ciw</code> (<strong>C</strong>hange <strong>I</strong>nside <strong>W</strong>ord).*</p>
+</blockquote>
+
+<p>Most of the verbs/modifiers/nouns can be used alone.</p>
+
+<blockquote>
+<p><em>Example: <code>/string</code> (Search for the word &ldquo;string&rdquo; in the whole document)</em></p>
+</blockquote>
+
+<h3 id="verbs">Verbs</h3>
+
+<blockquote>
+<p><code>c</code> - &ldquo;Change&rdquo;: It will delete the desired selection and put it into the buffer. Starts &ldquo;insert&rdquo; mode.</p>
+
+<p><code>v</code> - Visually select: highlights text for manipulation or for visual reference. (See examples)</p>
+
+<p><code>d</code> - &ldquo;Delete&rdquo;: Same as &ldquo;change&rdquo;, but it keeps the &ldquo;normal&rdquo; mode.</p>
+
+<p><code>y</code> - &ldquo;Yank&rdquo;. (Copy selection)</p>
+</blockquote>
+
+<p>*<strong>c</strong> and <strong>d</strong> (change/delete) seem to accomplish the same &lt;<cutting and putting data into the buffer for pasting later>&gt; functionalities, and the only difference I can notice is that &ldquo;c&rdquo; enters &ldquo;insert&rdquo; mode right after, whereas &ldquo;d&rdquo; maintains &ldquo;normal&rdquo; mode.*</p>
+
+<h3 id="modifiers">Modifiers</h3>
+
+<blockquote>
+<p><code>i/a</code> - Inside and around selection. (See examples)</p>
+
+<p><code>numbers</code> - Used to repeat the command for &ldquo;n&rdquo; iterations.</p>
+
+<p><code>/</code> - search string. (See Examples)</p>
+
+<p><code>t/f</code> - to/into search string. (See examples)</p>
+</blockquote>
+
+<h3 id="nouns">Nouns</h3>
+
+<blockquote>
+<p><code>w/W</code> - words/whole words. (Can also be used for movement. See Moves)</p>
+
+<p><code>s/p</code> - Sentences/paragraphs. (Not to confuse with substitute &amp; paste)</p>
+</blockquote>
+
+<h3 id="general-purpose-actions">General purpose actions</h3>
+
+<blockquote>
+<p><code>p/P</code> - paste after/before the cursor.</p>
+
+<p><code>i/a/A</code> - insert mode before / after the cursor / after the whole line (Think &ldquo;<strong>A</strong>ppend&rdquo;).</p>
+
+<p><code>o/O</code> - Insert new line after/before cursor position + enter Insert mode.</p>
+
+<p><code>r/R</code> - replace single character and return to normal mode / replace mode: Keeps replacing character by character until Esc.</p>
+
+<p><code>s/S/C</code> - Substitute character (Deletes character under cursor and start Insert mode) / Whole line from, and until the next &ldquo;.&rdquo; / Rest of the line, starting from the cursor position. (Vim seems to consider sentences as anything between 2 periods, regardless of their distance and position, so watch out since s/S is a greedy command)</p>
+
+<p><code>x/X</code> - Deletes character under/before the cursor.</p>
+
+<p><code>u/Ctrl+r</code> - Undo/Redo actions.</p>
+
+<p><code>J</code> - Join the paragraph with the next. (Delete everything between the end of the current paragraph and the next: spaces, empty lines)</p>
+
+<p><code>.</code> - Repeat last command. Can be used with numbers. i.e. <code>4.</code> will repeat the last command 4 times.</p>
+
+<p><code>~</code> - Switch upper/lowercase in current position. For whole lines/phrases/words, needs to be combined with visual mode, or selection.</p>
+</blockquote>
+
+<h3 id="moving-around-in-normal-mode">Moving around in &ldquo;normal&rdquo; mode</h3>
+
+<blockquote>
+<p><code>h, j, k, l</code> - Move the cursor. In order: Left, down, up, right.</p>
+
+<p><code>0/$</code> - Move cursor to the beginning / end of line.</p>
+
+<p><code>t/f</code> - Jumps up to/into the following character in the same line. (Example: t9 will jump to the next &ldquo;9&rdquo; character, stopping at the preceeding character, and f9 will jump INTO the next &ldquo;9&rdquo; character)</p>
+
+<p><code>w/W</code> - jump-to the next word / Big word. (For example, &ldquo;/etc/passwd&rdquo; is a &ldquo;big word&rdquo;; &ldquo;etc&rdquo; or &ldquo;passwd&rdquo; would be just &ldquo;words&rdquo;)</p>
+
+<p><code>b/B</code> - jump-back to previous word / Big word.</p>
+
+<p><code>e</code> - Jump-to the last character of the current word.</p>
+
+<p><code>) &amp; }</code> - Jump-to the next sentence/paragraph. Works backwards with ( and {.</p>
+
+<p><code>H / L</code> - Jump to the Top/Bottom of the screen.</p>
+
+<p><code>gg / G</code> - Jump to the Top/Bottom of the Document.</p>
+
+<p><code>:13</code> - Jump to the line number 13. (Set <strong>line numbers</strong> with &ldquo;:set number&rdquo;)</p>
+</blockquote>
+
+<h3 id="searching-through-the-file">Searching through the file</h3>
+
+<blockquote>
+<p><code>\&lt;string&gt;</code> - Searching forward.</p>
+
+<p><code>?&lt;string&gt;</code> - Searching Backwards.</p>
+
+<p><code>*</code> - Searches for the next word, matching the one the cursor is in. (If we are already &ldquo;in&rdquo; a specific word, instead of searching for it by typing it, we can <code>*</code> and it will search the next occurrence)</p>
+
+<p><code>n/N</code> - To be used after a search: next / previous result.</p>
+</blockquote>
+
+<h3 id="examples">Examples</h3>
+
+<p><em>Not to be memorized, but to be familiar with how Vim &ldquo;understands&rdquo;</em></p>
+
+<blockquote>
+<p><code>dd</code> - Cut the entire row, and put it into the memory buffer. It&rsquo;s often used for simple deletion but it can be pasted elsewhere.</p>
+
+<p><code>yy</code> - Copies (&ldquo;yanks&rdquo;) the entire row.</p>
+
+<p><code>cis</code> - Delete &ldquo;inside sentence&rdquo;. Everything after the last &ldquo;.&rdquo; and until the last &ldquo;.&rdquo;. Think &ldquo;Change inside sentence&rdquo;.</p>
+
+<p><code>d/Rodriguez</code> - Will delete everything from the cursor to the word &ldquo;Rodriguez&rdquo;, excluding &ldquo;Rodriguez&rdquo; itself.</p>
+
+<p><code>vf(</code> - Select (Visual mode) from cursor to the next &ldquo;(&rdquo;, including it. <code>vt(</code> would select everything up to &ldquo;(&rdquo; without including it.</p>
+
+<p><code>yiW</code> - Yank (copy) the current word. Think &ldquo;yank inside word&rdquo;</p>
+
+<p><code>y5aw</code> - Copy the following 5 words. Think &ldquo;Yank 5 (around) words&rdquo;. I&rsquo;m using <code>a</code> instead of <code>i</code> because <code>y5iw</code> would consider spaces as &ldquo;words&rdquo; too, so for example, the string &ldquo;I have a cow&rdquo; would need <code>y7iw</code> to grab it correctly.</p>
+
+<p><code>c2w</code> - Delete 2 words from the current cursor position. Think &ldquo;change 2 words&rdquo;.</p>
+
+<p><code>c2aw</code> - Delete 2 words, including spaces Around the current word. Think &ldquo;change 2 around word(s)&rdquo;.</p>
+
+<p><code>c2iw</code> - Delete 2 words, but doesn&rsquo;t include the spaces after the current word (Better use &ldquo;a&rdquo; than &ldquo;i&rdquo; in most cases). Think &ldquo;change 2 inside word(s)&rdquo;.</p>
+
+<p><code>dw</code> - Cuts the current word. Think &ldquo;delete word&rdquo;</p>
+
+<p><code>d$</code> - Cuts everything after the cursor, until the end of the line. ($ is strange to memorize, but it can be remapped to something more meaningful).</p>
+
+<p><code>dis</code> - Delete inside sentence. Greedy! Will cut everything from the last &ldquo;.&rdquo; to the next one.</p>
+
+<p><code>vaw ~</code> switch upper/lowercase in current word. Think &ldquo;<strong>V</strong>isual(select) <strong>a</strong>round <strong>w</strong>ord&rdquo;.</p>
+
+<p><code>t(</code> - Jumps the cursor to the next &ldquo;(&rdquo; in the current line. Think &ldquo;&lsquo;til (&rdquo;.</p>
+
+<p><code>dt(</code> - Delete everything from the cursor until the next &ldquo;(&rdquo;. Think &ldquo;delete &lsquo;til (&rdquo;.</p>
+
+<p><code>fC caw</code> - Jump-to the next &ldquo;C&rdquo;, and then delete the whole word. Think &ldquo;Forward to C, change around word&rdquo;.</p>
+
+<p><code>d:36</code> - Will Cut everything from the cursor, until the 36th line. Think &ldquo;delete until 36&rdquo;</p>
+</blockquote>
+
+<p><strong>Inside tags in programming:</strong></p>
+
+<blockquote>
+<p><code>da}</code> - Delete everything inside {} (Including brackets) when coding. We don&rsquo;t need to be positioned at the initial &ldquo;{&rdquo;.</p>
+
+<p><code>di}</code> - Delete everything inside {}, excluding brackets.</p>
+
+<p><code>ca}</code> / <code>ci}</code> - Same as before, but it enters &ldquo;insert&rdquo; mode after deletion.</p>
+</blockquote>
+
+<h2 id="macros">Macros</h2>
+
+<p>The most basic macros process there is:</p>
+
+<blockquote>
+<p><code>qz</code> (&ldquo;q&rdquo; starts recording and &ldquo;z&rdquo; is the name of the macros; it could be a,b, etc.)</p>
+
+<p><em>start editing the file</em></p>
+
+<p><code>q</code> (Stop recording)</p>
+
+<p><code>@z</code> (Start this macros once)</p>
+
+<p>* Or <code>:%:normal %z</code> will repeat the macros until the end of the file.</p>
+</blockquote>
+
+<h2 id="file-navigation">File navigation</h2>
+
+<p><code>:e &lt;tab&gt;</code> - Start navigating files in cwd with &lt;tab&gt;. Current work needs to be saved or discarded before opening a new file.
+<code>:pwd</code> - Print CWD.</p>
+
+<h2 id="mapping-keys">Mapping keys</h2>
+
+<p><em>It can be done temporarily by just typing the mappings but for it to be permanent we need to edit the vimrc file</em></p>
+
+<p><strong>Use:</strong> <code>&lt;mapping command&gt; &lt;old&gt; &lt;new&gt;</code></p>
+
+<p><em>Examples:</em></p>
+
+<p><code>:map $ '</code> - It will add <code>'</code> as a new command for <code>$</code> or End-of-line in normal mode. It depends on the keyboard Layout, but I tested it in one which has <code>0</code> next to <code>'</code> so in this case it made sense to map together End-of-line and Beginning-of-line.</p>
+
+<p><code>:inoremap jk &lt;Esc&gt;</code> Mapping in insert mode: Instead of switching to normal mode with Esc, type <code>jk</code>. The default key delay is ~1s. I&rsquo;ve seen people using <code>;;</code> instead, or <code>jj</code>. It depends on what combination is easier to remember and type, and what is most unlinkely to be typed in text, given one&rsquo;s language.</p>
+
+<p><code>ZZ</code> is sometimes already re-mapped by default to &ldquo;:wq&rdquo;</p>
+
+<h2 id="checking-the-current-vimrc-file">Checking the current Vimrc file</h2>
+
+<p><code>:e $MYVIMRC</code> - ~/.vimrc is not always the initialization script, so checking the MYVIMRC variable is sometimes a good idea when working under a new environment.</p>
+
+<hr />
+
+<p>And for a basic usage this is enough. Once some muscle memory is developed, we can speed up and trim down precious minutes of work with Vim.
+This quick reference covered the most basic usage, but it can grow in complexity almost infinitely (Check references if you want to go deeper).</p>
+
+<p><img src="/notebooks/img/vim-books.PNG" alt="Vim Books" /></p>
+
+<p>&hellip;So yeah, there&rsquo;s A LOT Vim can do.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=MquaityA1SM">“From Vim Muggle to Wizard in 10 Easy Steps” from Erik Falor (Youtube)</a></li>
+<li><a href="https://www.youtube.com/watch?v=a6Q8Na575qc">MIT “Missing Semester” lecture on Vim (Youtube)</a></li>
+<li><a href="https://www.youtube.com/watch?v=wlR5gYd6um0">Mastering the Vim language (Youtube)</a></li>
+</ul>
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/notebooks/firefox_hardening/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">A Firefox hardening quick guide</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/resources/d_over_resources/">Digital Overdose Conference Resources &amp; Readings</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/exploits/">Buffer Overflows &amp; Exploits.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/re-bof/">Reverse Engineering</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/buffer-overflow/">Buffer Overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/crypto/">Crypto</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ctf/">Ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/forensics/">Forensics</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hackthebox/">Hackthebox</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hardening/">Hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tools/">Tools</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tryhackme/">Tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/writeups/">Writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cybersecurity/" title="Cybersecurity">Cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/philosophy/" title="Philosophy">Philosophy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Argandov.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

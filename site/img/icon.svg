@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="112" height="112" viewBox="0 0 112 112">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="6" y="20" width="46" height="103" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-iPhone_X_XS_11_Pro_2">
+      <rect width="112" height="112"/>
+    </clipPath>
+  </defs>
+  <g id="iPhone_X_XS_11_Pro_2" data-name="iPhone X/XS/11 Pro – 2" clip-path="url(#clip-iPhone_X_XS_11_Pro_2)">
+    <rect width="112" height="112" fill="#fff"/>
+    <g id="Componente_1_2" data-name="Componente 1 – 2" transform="translate(56 5)">
+      <g id="Grupo_de_desplazamiento_1" data-name="Grupo de desplazamiento 1" transform="translate(-6 -20)" clip-path="url(#clip-path)" style="isolation: isolate">
+        <rect id="Rectángulo_1" data-name="Rectángulo 1" width="20" height="84" transform="translate(32 28)" fill="#eb2525"/>
+        <rect id="Rectángulo_2" data-name="Rectángulo 2" width="13" height="84" transform="translate(15 28)" fill="#eb2525"/>
+        <rect id="Rectángulo_3" data-name="Rectángulo 3" width="5" height="84" transform="translate(6 28)" fill="#eb2525"/>
+      </g>
+    </g>
+  </g>
+</svg>

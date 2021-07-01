@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Argv</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/argv_title.PNG">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/writeups-reports/">
+				
+				<span class="menu__text">Writeups &amp; Reports</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">A Firefox hardening quick guide</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-10-30T21:06:05-06:00">October 30, 2020</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/hardening/" rel="category">Hardening</a>
+	</span>
+</div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#firefox-profiles">Firefox profiles</a></li>
+<li><a href="#addons-extensions">Addons &amp; Extensions</a></li>
+<li><a href="#browsers-to-use">Browsers to use</a></li>
+<li><a href="#tools-for-testing-your-browser-s-fingerprint-headers-dns-leaks-etc">Tools for testing your browser&rsquo;s fingerprint, headers, DNS leaks, etc.</a></li>
+<li><a href="#other-readings">Other readings</a></li>
+<li><a href="#cis-official-benchmark">CIS official benchmark</a></li>
+</ul></li>
+</ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<hr />
+
+<p>The results of this guidelines render only a casual-use Firefox configuration. If you have special privacy/anonimity needs, or are concerned about sofisticated attack vectors, then please do not use Firefox (Or use it with other privacy-enhancing services/softwares). Do your own modifications and research as needed.</p>
+
+<p>The purpose of this setup is for Privacy and protection against tracking/fingerprinting and malicious sites. <strong>Not Anonimity</strong>.</p>
+
+<h2 id="firefox-profiles">Firefox profiles</h2>
+
+<p><strong>Firefox profile manager:</strong>
+&gt; <strong>Windows:</strong> Win+R -&gt; &ldquo;firefox.exe -P&rdquo;</p>
+
+<blockquote>
+<p><strong>Linux:</strong> In terminal -&gt; &ldquo;firefox -P&rdquo;</p>
+</blockquote>
+
+<p><strong>Location:</strong>
+- (Windows) C:\Users&lt;<em>username</em>&gt;\AppData\Roaming\Mozilla\Firefox\Profiles&lt;<em>profile_name</em>&gt;
+- (Linux) /home/&lt;<em>username</em>&gt;/</p>
+
+<p><strong>Custom, security-focused, automatic profiles (Worth to check out):</strong>
+&gt; <strong>User.js</strong> (<a href="https://github.com/arkenfox/user.js">https://github.com/arkenfox/user.js</a>).</p>
+
+<p>Download user.js file &amp; modify as needed. Examples:</p>
+
+<pre><code>- *user_pref(&quot;intl.accept_languages&quot;, &quot;en-US, en&quot;);*
+- *user_pref(&quot;app.update.auto&quot;, true);*
+</code></pre>
+
+<p>Save file in a new profiling location &gt; Open profile manager &gt; Create new profile and add the recently created folder.</p>
+
+<blockquote>
+<p><strong>Firefox Profilemaker</strong> (<a href="https://ffprofile.com">https://ffprofile.com</a>)</p>
+</blockquote>
+
+<p>Guidance provided at &ldquo;start&rdquo; click.</p>
+
+<p>Download profile. Apply to a new profile.</p>
+
+<p>## Manual Configuration</p>
+
+<p><strong>About:preferences</strong>
+Common privacy/security preferences:
+- OCSP enabled
+- Enable DNT (Do Not Track)
+- Disable cookies/Fingerprinting
+- Manage cookie storage (As needed)
+- Block dangerous content
+- SOCKSv5 / HTTP proxy if needed.
+- Enable DoH (DNS over HTTPS); select a secure DNS server. <em>(Needs more testing)</em></p>
+
+<p><strong>About:config</strong></p>
+
+<ul>
+<li>(TLS minimum version) &ldquo;security.tls.version.min&rdquo; -&gt; 3,</li>
+<li>(See the full URL @ search bar) browser.urlbar.trimURLs -&gt; true</li>
+<li>(Randomize http referer) network.http.referer.spoofSource -&gt; true</li>
+<li>(Disable fonts) browser.display.use_document_fonts -&gt; 0</li>
+<li>(Auto-update Firefox) extensions.update.autoUpdateDefault -&gt; true/false</li>
+
+<li><p>(Fingerprinting) privacy.resistFingerprinting -&gt; true</p></li>
+
+<li><p>See <strong>saved Certificate Authorities (CA)</strong>: about:certificate</p></li>
+</ul>
+
+<h2 id="addons-extensions">Addons &amp; Extensions</h2>
+
+<ul>
+<li>Certificate patrol (Current Cas)</li>
+<li>EFF&rsquo;s Privacy Badger</li>
+<li>Cookie quick manager</li>
+<li>Privacy Settings / Ublock Origin / uMatrix (Advanced)</li>
+<li>User-Agent Switcher (Check for the most common user-agent headers)</li>
+<li>CanvasBlocker</li>
+</ul>
+
+<h2 id="browsers-to-use">Browsers to use</h2>
+
+<ul>
+<li><a href="https://duckduckgo.com/">https://duckduckgo.com/</a></li>
+<li><a href="https://startpage.com/">https://startpage.com/</a></li>
+</ul>
+
+<h2 id="tools-for-testing-your-browser-s-fingerprint-headers-dns-leaks-etc">Tools for testing your browser&rsquo;s fingerprint, headers, DNS leaks, etc.</h2>
+
+<ul>
+<li><a href="https://ipleak.net/">https://ipleak.net/</a> (Good for DNS leaks and headers check)</li>
+<li><a href="https://panopticlick.eff.org">https://panopticlick.eff.org</a> (Good general browser check analysis)</li>
+<li><a href="https://browserleaks.com/">https://browserleaks.com/</a> (Good for fingerprinting analysis)</li>
+<li><a href="http://ip-check.info/">http://ip-check.info/</a> (more advanced browser check)</li>
+</ul>
+
+<h2 id="other-readings">Other readings</h2>
+
+<ul>
+<li><a href="https://ssd.eff.org/en/module/understanding-and-circumventing-network-censorship">https://ssd.eff.org/en/module/understanding-and-circumventing-network-censorship</a></li>
+<li><a href="https://anonymous-proxy-servers.net/en/jondofox.html">https://anonymous-proxy-servers.net/en/jondofox.html</a></li>
+</ul>
+
+<h2 id="cis-official-benchmark">CIS official benchmark</h2>
+
+<ul>
+<li><a href="https://www.cisecurity.org/benchmark/mozilla_firefox/">https://www.cisecurity.org/benchmark/mozilla_firefox/</a></li>
+</ul>
+
+<p><strong><em>Sources: StationX, Electronic Frontier Foundation (EFF), Mozilla Foundation, JonDonym.</em></strong></p>
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/notebooks/vim-yavg/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Yet Another Vim Guide</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/notebooks/windowsterminal/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Windows Terminal: Keeping a neat and clean workspace</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/resources/d_over_resources/">Digital Overdose Conference Resources &amp; Readings</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/exploits/">Buffer Overflows &amp; Exploits.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/re-bof/">Reverse Engineering</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/buffer-overflow/">Buffer Overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/crypto/">Crypto</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ctf/">Ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/forensics/">Forensics</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hackthebox/">Hackthebox</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hardening/">Hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tools/">Tools</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tryhackme/">Tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/writeups/">Writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cybersecurity/" title="Cybersecurity">Cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/philosophy/" title="Philosophy">Philosophy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Argandov.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

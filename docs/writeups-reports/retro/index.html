@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Argv</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/img/icon.svg">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" rel="home">
+			<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/argv_title.PNG">
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/blog/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/notebooks/">
+				
+				<span class="menu__text">Notebooks</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/resources/">
+				
+				<span class="menu__text">Resources</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/writeups-reports/">
+				
+				<span class="menu__text">Writeups &amp; Reports</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Tryhackme writeup: Retro</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-05-16T21:06:05-06:00">May 16, 2020</time></div></div>
+		</header>
+		
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#initial-recon-access">Initial recon + Access:</a></li>
+<li><a href="#access">Access</a></li>
+<li><a href="#privesc">Privesc</a></li>
+<li><a href="#cve-2019-1388">CVE 2019-1388</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+	</div>
+</div><div class="content post__content clearfix">
+			<p>Boot to root: Retro wordpress theme &amp; exploitation of CVE-2019-1388</p>
+
+<h3 id="initial-recon-access">Initial recon + Access:</h3>
+
+<p><strong>Results from nmap</strong> (Filtering was enabled. The option -Pn was necessary in this box):</p>
+
+<pre><code>80/tcp   open  http
+3389/tcp open  ms-wbt-server
+</code></pre>
+
+<p><strong>IIS Server running @ port 80</strong></p>
+
+<p>We can run a directory scan with gobuster, but we can first try &ldquo;retro&rdquo; as the directory.</p>
+
+<p><img src="/writeups-reports/files/retro/retro-http-main.png" alt="retro-http" /></p>
+
+<p><strong>Wordpress</strong></p>
+
+<p>Navigating within the page, we see a login page at /retro/wp-login.php</p>
+
+<p>User: Wade, password unknown yet. Admin user was invalid at &hellip;/wp-login.php, so we guess &ldquo;wade&rdquo; can be an administrator of the site.</p>
+
+<h3 id="access">Access</h3>
+
+<p>There is one blog post called &ldquo;<em>Ready player one</em>&rdquo;, in which there is a comment from Wade himself, about trying not to forget his favourite character &ldquo;parzival&rdquo; and so on.</p>
+
+<p>We try logging in with &lt;wade:parzival&gt;, and we&rsquo;re into the wordpress administration page! We could try to exploit wordpress themes by uploading a custom php reverse shell, but seeing there is an rdp service running, we can try to connect with xfreerdp and this credentials.</p>
+
+<p><img src="/writeups-reports/files/retro/retro-rdpconnection-usertxt.png" alt="retro-http" /></p>
+
+<p>And we&rsquo;re in!</p>
+
+<h3 id="privesc">Privesc</h3>
+
+<p>Opening Google chrome (I was expecting to see some information on History/passwords/etc.), there is a bookmark for NIST referencing CVE-2019-1388, which is itself a clue (maybe), about a vulnerability issuing &ldquo;Windows Certificate Dialog Elevation of Privilege Vulnerability&rdquo;.</p>
+
+<h3 id="cve-2019-1388">CVE 2019-1388</h3>
+
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-1388">(NIST) CVE-2019-1388</a></p>
+
+<p>This points to an issue with the UAC in Windows:</p>
+
+<blockquote>
+<p>Whenever we run a verified executable (This can&rsquo;t be done with unsigned .exe) as <strong>administrator</strong>, and we&rsquo;re prompted for the admin password, we can click the link of the path to the certificate, and this will open a browser as administrator, since we&rsquo;re still on the UAC.</p>
+
+<p>Then, we can save the browser&rsquo;s page (<em>save as</em>), and at the saving window, instead of actually saving the html, we navigate to C:/users/user/windows/system32/ and open cmd.exe.</p>
+</blockquote>
+
+<p>PoC video: <a href="https://www.youtube.com/watch?v=6kVVwBXOPW0">https://www.youtube.com/watch?v=6kVVwBXOPW0</a></p>
+
+<p>Remember, we&rsquo;re still under the UAC process, so whatever we do here, will be executed as <strong>administrator</strong>:</p>
+
+<p><img src="/writeups-reports/files/retro/retro-admin-shell.png" alt="retro-http" /></p>
+
+<p>This way we secured the flag by just reading it from the cmd <em>(Or opening <code>&gt; notepad root.txt.txt</code> because the selection and copy/paste functions directly at the terminal were not available)</em>.</p>
+		</div>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/writeups-reports/ics_thm_1/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Tryhackme writeup: Attacking ICS #1</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/writeups-reports/brainpan/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">Tryhackme writeup: Brainpan</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://duckduckgo.com/">
+		<label>
+			<h5>Not quite what you needed? Try searching something in Duck Duck Go!</h5>
+			<input class="widget-search__field" type="Search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		
+		<input type="hidden" name="sites" value=""/> 
+	</form>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">News</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+		           
+		
+			<li class="widget__item">
+				<a class="widget__link" href="https://www.scmagazine.com/" target="_blank">SC Magazine</a> <br>
+                <a class="widget__link" href="https://www.darkreading.com/" target="_blank">Dark Reading</a>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/resources/d_over_resources/">Digital Overdose Conference Resources &amp; Readings</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/exploits/">Buffer Overflows &amp; Exploits.</a></li>
+			<li class="widget__item"><a class="widget__link" href="/resources/training-sites/re-bof/">Reverse Engineering</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/buffer-overflow/">Buffer Overflow</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/crypto/">Crypto</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/ctf/">Ctf</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/forensics/">Forensics</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hackthebox/">Hackthebox</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/hardening/">Hardening</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tools/">Tools</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/tryhackme/">Tryhackme</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/writeups/">Writeups</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cybersecurity/" title="Cybersecurity">Cybersecurity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/health-hacking/" title="Health Hacking">Health Hacking</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/philosophy/" title="Philosophy">Philosophy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="Ssh">Ssh</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Argandov.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a>. Theme created by <a href="https://github.com/Vimux" rel="nofollow noopener" target="_blank">Vimux</a></span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

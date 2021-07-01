@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups &amp; Reports on </title>
+    <link>https://argandov.github.io/writeups-reports/</link>
+    <description>Recent content in Writeups &amp; Reports on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 May 2021 10:20:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://argandov.github.io/writeups-reports/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tryhackme: Cicada 3301 Vol. 1</title>
+      <link>https://argandov.github.io/writeups-reports/files/cicada/</link>
+      <pubDate>Thu, 13 May 2021 10:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/files/cicada/</guid>
+      <description>&lt;p&gt;A basic steganography and cryptography challenge room based on the Cicada 3301 challenges&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hack The Box: Alienphish</title>
+      <link>https://argandov.github.io/writeups-reports/alienphish/</link>
+      <pubDate>Mon, 26 Apr 2021 18:20:20 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/alienphish/</guid>
+      <description>&lt;p&gt;This CTF was part of the event hosted at ctf.hackthebox.eu &amp;ldquo;Cyberapocalypse&amp;rdquo;.
+Mission: Find a payload and a flag inside &amp;ldquo;Alien Weaknesses.pptx&amp;rdquo;,&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Brainpan</title>
+      <link>https://argandov.github.io/writeups-reports/brainpan/</link>
+      <pubDate>Wed, 21 Apr 2021 20:37:01 -0500</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/brainpan/</guid>
+      <description>&lt;p&gt;Brainpan is part of the &amp;ldquo;Offensive Pentesting Path&amp;rdquo; in TryHackMe, and it is a straight-forward &lt;strong&gt;buffer overflow&lt;/strong&gt; activity with further extra steps to achieve full &lt;strong&gt;privilege escalation&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Retro</title>
+      <link>https://argandov.github.io/writeups-reports/retro/</link>
+      <pubDate>Sat, 16 May 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/retro/</guid>
+      <description>&lt;p&gt;Boot to root: Retro wordpress theme &amp;amp; exploitation of CVE-2019-1388&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tryhackme writeup: Attacking ICS #1</title>
+      <link>https://argandov.github.io/writeups-reports/ics_thm_1/</link>
+      <pubDate>Sat, 09 May 2020 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/writeups-reports/ics_thm_1/</guid>
+      <description>&lt;p&gt;This room covers an introduction to ICS / SCADA controls, and some manipulation that can be done remotely. Starting with a virtuaplant appliance, and using python scripts to send information via Modbus TCP to retrieve register states.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
