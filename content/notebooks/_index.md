@@ -9,8 +9,7 @@ menu: main
 
 **GUIDES, CHEATSHEETS, AND GENERAL TECHNICAL RELATED POSTS.**
 
----
-
+[Learning DSA in Python](https://github.com/Argandov/python) (Redirect to my Github)
 
 ---
 
