@@ -9,6 +9,8 @@ toc: true
 
 ---
 
+Step by step for new repositories, working locally and remotely
+
 <!--more-->
 
 ## New local repository
