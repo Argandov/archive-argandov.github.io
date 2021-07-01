@@ -154,6 +154,10 @@
   </url>
   
   <url>
+    <loc>https://argandov.github.io/notebooks/how_to_git/</loc>
+  </url>
+  
+  <url>
     <loc>https://argandov.github.io/tags/linux/</loc>
     <lastmod>2021-04-02T21:06:05-06:00</lastmod>
     <priority>0</priority>
@@ -193,6 +197,11 @@
   <url>
     <loc>https://argandov.github.io/tags/</loc>
     <lastmod>2021-04-18T21:06:05-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://argandov.github.io/tags/tools/</loc>
     <priority>0</priority>
   </url>
   

@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/tags/cybersecurity/index.xml" title="">
+	<link rel="alternate" type="application/rss+xml" href="/tags/tools/index.xml" title="">
 
 	<link rel="shortcut icon" href="/img/icon.svg">
 		
@@ -77,64 +77,21 @@
 	<header class="main__header">
 		
 	</header><article class="list__item post">
-	<figure class="list__thumbnail">
-		<a href="https://argandov.github.io/resources/d_over_resources/">
-			<img src="/blog/assets/img/d_over.PNG" alt="Digital Overdose Conference Resources &amp; Readings" />
-		</a>
-	</figure>
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/resources/d_over_resources/" rel="bookmark">
-			Digital Overdose Conference Resources &amp; Readings
+			<a href="/notebooks/how_to_git/" rel="bookmark">
+			How to git
 			</a>
 		</h2>
-		<p class="list__lead post__lead">Making sense of data with Linux</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-18T21:06:05-06:00">April 18, 2021</time></div></div>
+		<p class="list__lead post__lead">Quick reference for git projects</p>
+		
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		Video Youtube Files for the exercises:  slides pcap file  Resources - pcap analysis  Sguil info About Packet sniffers Tcpdump introduction Tcpdump man pages Tcpdump flags explained and extra info Tcpdump guide by Daniel Miessler ET PRO Rule categories information Virtual Machine setup - Kali Linux How to install mono + Network Miner  Interesting reads  Analyzing network traffic basic linux tools (pdf by SANS institute) Extracting files from packet captures (pdf by SANS institute) Tutorial: Extracting files from pcap in Wireshark (malware-traffic-analysis.
-	</div>
-</article><article class="list__item post">
-	<figure class="list__thumbnail">
-		<a href="https://argandov.github.io/notebooks/isolation/">
-			<img src="/notebooks/img/vm-setup-thumbnail.PNG" alt="Compartmentalization Virtual Machine setup" />
-		</a>
-	</figure>
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/notebooks/isolation/" rel="bookmark">
-			Compartmentalization Virtual Machine setup
-			</a>
-		</h2>
-		<p class="list__lead post__lead">Quick guide to get started with testing virtual labs</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-02T21:06:05-06:00">April 02, 2021</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p><em>Important: This following guide assumes your activities will be low-risk, so the isolation is kept at some degree lightly. If you have some advanced and specific needs, this guide may come short and you may need to do some more research.</em></p>
-	</div>
-</article><article class="list__item post">
-	<figure class="list__thumbnail">
-		<a href="https://argandov.github.io/notebooks/mono-networkminer/">
-			<img src="/notebooks/img/pcap-Linux-thumbnail.PNG" alt="Examine files in transit from pcap files in Linux" />
-		</a>
-	</figure>
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/notebooks/mono-networkminer/" rel="bookmark">
-			Examine files in transit from pcap files in Linux
-			</a>
-		</h2>
-		<p class="list__lead post__lead">Get Network Miner up and running in Linux in around 5 minutes</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-02T21:06:05-06:00">April 02, 2021</time></div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		In order for us to have a friendly interface for analizing network capture files (pcap), it&rsquo;s very useful to have monitoring tools like Network Miner, which lets us extract the data in transit as it happened at the time of the capture. It also allows us to &ldquo;sniff&rdquo; communications in real time but for this time we will only be using it for reading an already existing .pcap file.
+		New local repository git config --global user.name &quot;my name&quot; git config --global user.email &quot;my email&quot; (For reference when working with teams; not necessarily related to the account)
+1.- git init
+*Adds a new .git directory on the current folder (pwd). To stop git from following this repo, delete .git directory
+2.- touch .gitignore
+* Add here any file to be &ldquo;ignored&rdquo; in upstream (Private info or irrelevant to the project)
 	</div>
 </article>
 </main>
