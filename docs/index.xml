@@ -6,10 +6,23 @@
     <description>Recent content in About this website on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 10:20:20 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jun 2021 21:06:05 -0600</lastBuildDate>
     
 	<atom:link href="https://argandov.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to git</title>
+      <link>https://argandov.github.io/notebooks/how_to_git/</link>
+      <pubDate>Wed, 30 Jun 2021 21:06:05 -0600</pubDate>
+      
+      <guid>https://argandov.github.io/notebooks/how_to_git/</guid>
+      <description>New local repository git config --global user.name &amp;quot;my name&amp;quot; git config --global user.email &amp;quot;my email&amp;quot; (For reference when working with teams; not necessarily related to the account)
+1.- git init
+*Adds a new .git directory on the current folder (pwd). To stop git from following this repo, delete .git directory
+2.- touch .gitignore
+* Add here any file to be &amp;ldquo;ignored&amp;rdquo; in upstream (Private info or irrelevant to the project)</description>
+    </item>
     
     <item>
       <title>Tryhackme: Cicada 3301 Vol. 1</title>
@@ -149,19 +162,6 @@ In this article, we’ll explore some of the features and settings for the WT, a
       
       <guid>https://argandov.github.io/resources/training-sites/exploits/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>How to git</title>
-      <link>https://argandov.github.io/notebooks/how_to_git/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://argandov.github.io/notebooks/how_to_git/</guid>
-      <description>New local repository git config --global user.name &amp;quot;my name&amp;quot; git config --global user.email &amp;quot;my email&amp;quot; (For reference when working with teams; not necessarily related to the account)
-1.- git init
-*Adds a new .git directory on the current folder (pwd). To stop git from following this repo, delete .git directory
-2.- touch .gitignore
-* Add here any file to be &amp;ldquo;ignored&amp;rdquo; in upstream (Private info or irrelevant to the project)</description>
     </item>
     
     <item>

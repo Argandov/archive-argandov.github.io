@@ -1,6 +1,6 @@
 ---
 title: "How to git"
-date: true
+date: 2021-06-30T21:06:05-06:00
 draft: false
 tags: ["tools"]
 Author: "Argandov"
@@ -8,6 +8,7 @@ lead: "Quick reference for git projects"
 toc: true 
 
 ---
+
 <!--more-->
 
 ## New local repository

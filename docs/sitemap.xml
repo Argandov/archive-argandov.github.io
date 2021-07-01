@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://argandov.github.io/notebooks/how_to_git/</loc>
+    <lastmod>2021-06-30T21:06:05-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://argandov.github.io/writeups-reports/files/cicada/</loc>
     <lastmod>2021-05-13T10:20:20-05:00</lastmod>
   </url>
@@ -79,7 +84,7 @@
   
   <url>
     <loc>https://argandov.github.io/</loc>
-    <lastmod>2021-05-13T10:20:20-05:00</lastmod>
+    <lastmod>2021-06-30T21:06:05-06:00</lastmod>
   </url>
   
   <url>
@@ -154,10 +159,6 @@
   </url>
   
   <url>
-    <loc>https://argandov.github.io/notebooks/how_to_git/</loc>
-  </url>
-  
-  <url>
     <loc>https://argandov.github.io/tags/linux/</loc>
     <lastmod>2021-04-02T21:06:05-06:00</lastmod>
     <priority>0</priority>
@@ -170,7 +171,7 @@
   
   <url>
     <loc>https://argandov.github.io/notebooks/</loc>
-    <lastmod>2021-05-06T21:06:05-06:00</lastmod>
+    <lastmod>2021-06-30T21:06:05-06:00</lastmod>
   </url>
   
   <url>
@@ -202,6 +203,7 @@
   
   <url>
     <loc>https://argandov.github.io/tags/tools/</loc>
+    <lastmod>2021-06-30T21:06:05-06:00</lastmod>
     <priority>0</priority>
   </url>
   

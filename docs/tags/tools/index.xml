@@ -6,6 +6,7 @@
     <description>Recent content in Tools on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 30 Jun 2021 21:06:05 -0600</lastBuildDate>
     
 	<atom:link href="https://argandov.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +14,7 @@
     <item>
       <title>How to git</title>
       <link>https://argandov.github.io/notebooks/how_to_git/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 Jun 2021 21:06:05 -0600</pubDate>
       
       <guid>https://argandov.github.io/notebooks/how_to_git/</guid>
       <description>New local repository git config --global user.name &amp;quot;my name&amp;quot; git config --global user.email &amp;quot;my email&amp;quot; (For reference when working with teams; not necessarily related to the account)
