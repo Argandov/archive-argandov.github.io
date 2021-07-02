@@ -25,7 +25,9 @@ Step by step for new repositories, working locally and remotely
 
 2.- `touch .gitignore`
 
-\* Add here any file to be "ignored" in upstream (Private info or irrelevant to the project)
+Add here any file to be "ignored" in upstream (Private info or irrelevant to the project)
+\* **Note: If the files assigned in .gitignore are already in the repository, it's necessary to remove them:**
+`git rm -rf --cached .`
 
 I.e. `echo "id_rsa" >> .gitignore`
 or `echo "local_tests" >> .gitignore`
