@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: argandov.github.io
+Token: ef5dd3248668791f7677640b2bd41d6d06fa32d9d6875fcd78c1151eee062c24
