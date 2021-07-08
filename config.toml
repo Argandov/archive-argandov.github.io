@@ -8,10 +8,11 @@ theme = "mainroad"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
+
 [taxonomies]
   tag = "tags"
   category = "categories"
-  mood = "moods" # Esta es una nueva taxonomía
+  mood = "moods" # 
 
 [Author] # Used in authorbox
   name = "Argandov"
@@ -30,8 +31,6 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [Params.logo]
   subtitle = ""
   image = "img/argv_title.PNG" # Logo image. Path relative to "static"
-
-
 
 [Params.sidebar]
   home = "right"   # Configure layout for home page
