@@ -7,7 +7,8 @@ pager: false
 
 ---
 
-> **2021 stage:** This site is still in its infancy and it will most likely suffer many changes as I nurture it.
+> ~~**2021 stage:** This site is still in its infancy and it will most likely suffer many changes as I nurture it.~~
+> **2023 Update:** This site and a lot of new material will be migrated to Gitbook at [https://docs.argv.cloud](https://docs.argv.cloud/main/) for ease of administration and publishing.
 
 ##### Made by a Cybersecurity enthusiast, for Cybersecurity enthusiasts!
 
